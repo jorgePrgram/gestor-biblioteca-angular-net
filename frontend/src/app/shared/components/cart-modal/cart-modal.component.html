@@ -1,0 +1,30 @@
+@if(isOpen){
+<div class="cart-modal">
+
+    <button class="close-btn" (click)="close.emit()">✕</button>
+
+    <h3>Mi Carrito ({{cartItems.length}})</h3>
+
+    @for(item of cartItems; track item.codigoBarra){
+      <div class="cart-item">
+        <span>{{item.libro.nombre}}</span>
+
+        <div class="barcode-row">
+          <input 
+             type="text"
+  [value]="item.codigoBarra"
+  readonly />
+
+
+          <button class="remove" (click)="remove(item.codigoBarra)">🗑</button>
+        </div>
+      </div>
+    }
+
+    <div class="actions">
+      <button class="clear" (click)="clear()">Vaciar</button>
+      <button class="submit" (click)="solicitarPrestamo()">Solicitar prestamo</button>
+    </div>
+
+</div>
+}

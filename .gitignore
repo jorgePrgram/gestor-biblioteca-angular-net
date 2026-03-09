@@ -1,0 +1,23 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# .NET build
+bin/
+obj/
+*.dbmdl
+
+# Node / Angular
+node_modules/
+dist/
+
+# Entornos
+appsettings.json
+appsettings.Development.json
+appsettings.Production.json
+
+# Logs
+*.log

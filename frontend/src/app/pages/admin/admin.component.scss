@@ -1,0 +1,44 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Contenedor de navegación */
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 60px 20px;
+}
+
+/* Cada opción como cuadrado */
+.navigation div {
+  width: 120px;
+  height: 100px;
+  background: #f5f5f5;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Efecto hover */
+.navigation div:hover {
+  background: #1976d2;
+  color: white;
+  transform: translateY(-5px);
+}
+
+/* Footer abajo */
+app-footer {
+  margin-top: auto;
+}

@@ -1,0 +1,59 @@
+<h2>Pedidos</h2>
+
+<input 
+  type="number"
+  placeholder="Filtrar por cliente"
+  [(ngModel)]="clienteIdFiltro"
+/>
+
+<button (click)="buscar()">Buscar</button>
+<button (click)="cargarPedidos()">Todos</button>
+
+<hr>
+
+@if (!pedidoSeleccionado) {
+  <ul>
+    @for (pedido of pedidos; track pedido.id) {
+      <li>
+        Pedido #{{pedido.id}} - Cliente {{pedido.clienteNombre}} - {{pedido.fechaPedido}} - {{pedido.estadoPedido}}
+        <button (click)="verDetalle(pedido)">Ver Detalle</button>
+      </li>
+    }
+  </ul>
+}
+@if (pedidoSeleccionado) {
+  <div>
+    <button (click)="pedidoSeleccionado = undefined">← Volver</button>
+
+    <h3>Pedido #{{pedidoSeleccionado.id}}</h3>
+    <p>Cliente: {{pedidoSeleccionado.clienteNombre}}</p>
+    <p>Fecha: {{pedidoSeleccionado.fechaPedido}}</p>
+    <p>Estado: {{pedidoSeleccionado.estadoPedido}}</p>
+
+    <h4>Ejemplares:</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Código de Barra</th>
+          <th>Libro</th>
+          <th>Estado</th>
+          <th>Fecha Reserva</th>
+          <th>Fecha Préstamo</th>
+          <th>Fecha Devolución</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (ej of pedidoSeleccionado.ejemplares; track ej.ejemplarId) {
+          <tr>
+            <td>{{ej.codigoBarra}}</td>
+            <td>{{ej.nombreLibro}}</td>
+            <td>{{getEstadoEjemplar(ej.estado)}}</td>
+            <td>{{ej.fechaReserva}}</td>
+            <td>{{ej.fechaPrestamo ?? '-'}}</td>
+            <td>{{ej.fechaDevolucion ?? '-'}}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}

@@ -1,0 +1,43 @@
+<div class="page-container">
+  <app-home-header [showSearch]="false"></app-home-header>
+
+  <div class="container">
+    <div class="title-container">
+      <span>Solicita prestado este libro</span>
+    </div>
+
+    @if (authService.getIsLoggedIn() && (authService.getRole() === 'Administrator' || authService.getRole() === 'Cliente')) {
+      <button (click)="abrirEjemplares()" [disabled]="!libro" class="btn-ejemplares">
+        Ver ejemplares disponibles
+      </button>
+    }
+
+    <div class="content">
+      @if (libro) {
+        <app-libro-card [data]="libro"></app-libro-card>
+
+        <div class="panel-container">
+          <div class="actions">
+            <span class="Stock">Disponible: {{ libro.stockDisponible }}</span>
+          </div>
+      <button
+  (click)="agregarAlCarrito()"
+  [disabled]="!codigoSeleccionado || yaPrestado(libro.id)">
+
+  @if (!codigoSeleccionado) {
+    Selecciona un ejemplar
+  } @else {
+    Agregar este ejemplar al carrito
+  }
+
+</button>
+        </div>
+
+      } @else {
+        <p>Cargando información del libro...</p>
+      }
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>

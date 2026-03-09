@@ -1,0 +1,25 @@
+
+<div class="page-container">
+    <app-home-header [showSearch]="true" (search)="onSearch($event)"></app-home-header>
+  <div class="filter">
+    <label for="genre-select">Género:</label>
+    <select id="genre-select" [formControl]="currentGenre">
+      <option value="0">Todos</option>
+      @for (genre of genres; track genre.id) {
+        <option [value]="genre.id">{{genre.name}}</option>
+      }
+    </select>
+    <span>Selecciona tu género favorito</span>
+  </div>
+
+  <!-- Lista de libros -->
+  <div class="book-list">
+    @for(libro of libros; track libro.id){
+      <app-libro-card [data]="libro" [routerLink]="'/book-detail/' +libro.id"></app-libro-card>
+    }@empty {
+      <h2>No se encontraron libros :c</h2>
+    }
+  </div>
+
+  <app-footer></app-footer>
+</div>

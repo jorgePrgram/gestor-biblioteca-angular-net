@@ -1,0 +1,40 @@
+.page-container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.filter {
+  padding: 1rem 2rem;
+  background-color: #f0f8ff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.filter label {
+  font-weight: bold;
+  color: #007c91;
+}
+
+.filter select {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #007c91;
+  background-color: #ffffff;
+  color: #004d54;
+  font-size: 1rem;
+}
+
+.filter span {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}

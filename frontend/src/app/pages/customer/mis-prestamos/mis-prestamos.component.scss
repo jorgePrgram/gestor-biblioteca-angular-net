@@ -1,0 +1,49 @@
+.page-container {
+  padding: 20px;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .pedido-card {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+
+    h3 {
+      margin-bottom: 15px;
+    }
+
+    .ejemplar {
+      padding: 10px 0;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #eee;
+
+      p {
+        margin: 4px 0; // elimina el espacio exagerado entre líneas
+      }
+
+      &:last-child {
+        border-bottom: none; // quita la línea del último libro
+        margin-bottom: 0;
+      }
+      
+      .btn-devolver {
+        margin-top: 8px;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        transition: 0.2s;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<div class="page-container">
+<button (click)="cerrar()">Cerrar</button>
+  <h2>Ejemplares disponibles</h2>
+
+  @if(ejemplares.length === 0){
+    <p>No hay ejemplares disponibles</p>
+  }
+
+  @for(ejemplar of ejemplares; track ejemplar.id){
+  <div (click)="seleccionarEjemplar(ejemplar.codigoBarra)">
+    📦 {{ ejemplar.codigoBarra }}
+  </div>
+}
+
+</div>

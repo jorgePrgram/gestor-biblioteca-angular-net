@@ -1,0 +1,39 @@
+
+
+<header>
+<div class="container">
+    <div class="logo-container">
+        <img src="assets/logo.jpg" alt="logo"/>
+        <h1>BIBLIOTECA</h1>
+    </div>
+   <div class="search-container">
+    @if(showSearch){
+        <input [formControl]="searchControl" type="text" placeholder="Buscar...">
+    }
+    <button (click)="buscar()">🔍 Buscar</button>
+</div>
+   
+
+
+    <button (click)="toggleCart()">🛒</button>
+    <app-cart-modal [isOpen]="isCartOpen" (close)="isCartOpen=false"></app-cart-modal>
+
+
+     @if(authService.getIsLoggedIn()){
+        <div class="buttons-container">
+            <button class="primary" 
+            [routerLink]="authService.getRole()==='Administrator'? '/admin' : '/customer'">
+        {{authService.getName() || 'MI CUENTA'}}</button>
+        <button (click)="authService.logout()">CERRAR SESION</button>
+        </div>
+     }
+     @else {
+        <div class="auth-buttons">
+            <button routerLink="/login">INGRESAR</button>
+            <button routerLink="/register">REGISTRARSE</button>
+        </div>
+      }
+</div>
+    
+
+</header>

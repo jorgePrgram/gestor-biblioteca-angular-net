@@ -1,0 +1,74 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0; // separación de la parte superior e inferior
+
+    .login-card {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--primary-color);
+      width: 360px;
+      border-radius: 8px;
+      padding: 30px; // un poco más de espacio interno
+
+      h2 {
+        margin-top: 0;
+        margin-bottom: 15px; // separación del título al contenido
+        align-self: center;
+      }
+
+      .subtitle {
+        align-self: center;
+        margin-bottom: 20px; // separa del formulario
+      }
+
+      form {
+
+        .form-group { 
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 15px; // separa los grupos entre sí
+          input{
+            height: 30px;
+            border-radius: 8px;
+           border: none;
+          }
+          .error {
+  color: #ff4d4f;
+  font-size: 13px;
+  margin-top: 4px;
+}
+        }
+
+        button {
+          width: 100%;
+          padding: 12px 24px;
+          background: linear-gradient(135deg, #4f46e5, #6366f1);
+          color: white;
+          font-weight: bold;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          font-family: sans-serif;
+          transition: background 0.3s ease;
+          margin-top: 10px; // separa botón del último input
+
+          &:hover {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+          }
+        }
+        .footer-text{
+            margin-top: 15px;
+            text-align: center;
+        }
+      } /* end form */
+    } /* end login-card */
+  } /* end login-container */
+} /* end page-container */

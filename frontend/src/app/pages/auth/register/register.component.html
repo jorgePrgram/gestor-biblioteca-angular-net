@@ -1,0 +1,93 @@
+<div class="page-container">
+    <app-simple-header></app-simple-header>
+
+    <div class="title-container">
+        <div class="title">
+            <span>Registrate, Ingresa tus datos</span>
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="card box-shadow">
+            <div class="fomr-title-container">
+                <span>REGISTRO</span>
+            </div>
+            <form [formGroup]="registerForm" (ngSubmit)="register()">
+                <div>
+                    <label>Nombre</label>
+                    <input type="text" formControlName="name"/>
+                    <div *ngIf="registerForm.controls.name.touched &&
+                    registerForm.controls.name.invalid">
+                    Nombre es obligatorio</div>
+                </div>
+                <div>
+                    <label>Apellido</label>
+                    <input type="text" formControlName="lastName"/>
+                     <div *ngIf="registerForm.controls.lastName.touched &&
+                             registerForm.controls.lastName.invalid">
+                                 Apellido es obligatorio
+                        </div>
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input type="email" formControlName="email"/>
+                    <div *ngIf="registerForm.controls.email.touched &&
+                        registerForm.controls.email.hasError('required')">
+                    Email obligatorio
+                    </div>
+                     <div *ngIf="registerForm.controls.email.hasError('email')">
+                         Email inválido
+                    </div>
+                </div>
+                <div>
+                 <label>Edad</label>
+                <input type="number" formControlName="age" />
+                </div>
+                <div>
+                    <label>Contraseña</label>
+                    <input type="password" formControlName="password"/>
+                    <div *ngIf="registerForm.controls.password.touched &&
+                       registerForm.controls.password.hasError('minlength')">
+                       Mínimo 8 caracteres
+                    </div>
+                    <div *ngIf="registerForm.get('password')?.hasError('pattern')">
+                        La contraseña debe tener mayúscula, minúscula y número
+                    </div>
+                </div>
+                <div>
+                <label>Confirmar contraseña</label>
+                     <input type="password" formControlName="confirmPassword"/>
+
+                 <div *ngIf="registerForm.value.password !== registerForm.value.confirmPassword &&
+                      registerForm.get('confirmPassword')?.touched">
+                 Las contraseñas no coinciden
+                    </div>
+                    </div>
+
+                <div>
+                    <label>Tipo Documento</label>
+                    <select formControlName="documentType">
+                        <option value="0">DNI</option>
+                        <option value="1">Pasaporte</option>
+                        <option value="3">CE</option>
+                        <option value="4">Otros</option>
+
+                    </select>
+                </div>
+
+                 <div>
+                    <label>Número Documento</label>
+                    <input type="text" formControlName="documentNumber" />
+                     </div>
+
+
+
+                 <button type="submit" [disabled]="registerForm.invalid">
+                    Registrar
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+    <app-footer></app-footer>
+</div>

@@ -1,0 +1,68 @@
+header {
+  background-color: var(--secondary-color);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+
+  & .container {
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px; // Espacio general entre bloques del header
+
+    & .search-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px; // Separa el input del botón "Buscar"
+      flex-grow: 1; // Permite que tome el espacio disponible
+      max-width: 500px;
+
+      & input {
+        width: 100%; // Ajustado para ser flexible
+        height: 35px;
+        border-radius: 8px;
+        padding-left: 10px;
+        border: none;
+      }
+    }
+
+    // Contenedor para botones de sesión y carrito
+    & .auth-buttons, .buttons-container {
+      display: flex;
+      align-items: center;
+      gap: 12px; // <--- Esto separa los botones de "Ingresar", "Registrarse", etc.
+    }
+
+    & .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: fit-content;
+
+      & img {
+        width: 50px;
+        height: 50px;
+      }
+      & h1 {
+        color: white;
+        margin: 0;
+      }
+    }
+    
+    button {
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: 1px solid white;
+      background: transparent;
+      color: white;
+      white-space: nowrap; // Evita que el texto se rompa en dos líneas
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}

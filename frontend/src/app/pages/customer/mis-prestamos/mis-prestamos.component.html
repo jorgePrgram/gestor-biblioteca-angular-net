@@ -1,0 +1,32 @@
+<div class="page-container">
+  <h2>Mis pedidos</h2>
+
+  <div *ngFor="let pedido of pedidos" class="pedido-card">
+    <h3>Pedido #{{ pedido.id }}</h3>
+
+    <div *ngFor="let ejemplar of pedido.ejemplares" class="ejemplar">
+      <p>📚 {{ ejemplar.nombreLibro }}</p>
+      <p>🔢 Código: {{ ejemplar.codigoBarra }}</p>
+      <p>Fecha de reserva: {{ejemplar.fechaReserva}}</p>
+      <div *ngIf="ejemplar.fechaPrestamo"><p>Fecha de prestamo:{{ejemplar.fechaPrestamo}}</p></div>
+       <div *ngIf="ejemplar.fechaDevolucion"><p>Fecha de devolucion:{{ejemplar.fechaDevolucion}}</p></div>
+      
+<p>
+  🟢 Estado:
+  {{ obtenerEstado(ejemplar.estado) }}
+</p>
+    <button
+  *ngIf="ejemplar.estado !== 2"
+  (click)="devolverEjemplar(ejemplar.ejemplarId)"
+  class="btn-devolver">
+  Devolver
+</button>
+ 
+
+    </div>
+  <p>
+  🟢🟢 Estado:
+  {{ pedido.estadoPedido }}
+</p>
+  </div>
+</div>

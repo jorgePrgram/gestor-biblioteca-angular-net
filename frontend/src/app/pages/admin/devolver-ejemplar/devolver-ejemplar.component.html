@@ -1,0 +1,25 @@
+<h2>Devolver Ejemplar</h2>
+
+<hr>
+
+<input 
+  type="number" 
+  [(ngModel)]="pedidoId" 
+  placeholder="ID del pedido"
+/>
+
+<input 
+  type="text" 
+  [(ngModel)]="codigoBarra" 
+  placeholder="Código de barras"
+/>
+
+<button (click)="devolver()">Devolver</button>
+
+@if (mensaje) {
+  <p class="exito">✔ {{mensaje}}</p>
+}
+
+@if (error) {
+  <p class="error">✖ {{error}}</p>
+}
